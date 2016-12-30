@@ -1,3 +1,3 @@
 module.exports.settings = {
-    url: 'mongodb://localhost:27017/shortcuturl'
+    url: process.env.MONGODB_URI
 }
