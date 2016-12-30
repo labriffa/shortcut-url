@@ -1,10 +1,17 @@
 var express = require("express"),
     app = express(),
     hasher = require("./modules/hash-generator"),
+    configDb = require("./config/database"),
     mongo = require("mongodb").MongoClient;
-   
+  
+app.use(require("stylus").middleware(__dirname + '/stylus'));
+app.use('/css', express.static(__dirname + '/css'));
+  
+app.set('views', __dirname + '/views');
+app.set('view engine', 'pug');  
+  
 app.get(/^\/[A-Za-z\d]{7}$/, function(req, res){
-    mongo.connect('mongodb://localhost:27017/shortcuturl', function(err, db){
+    mongo.connect(configDb.settings.url, function(err, db){
         if(err) throw err;
         db.collection('url').findOne({ 'hash': req.url.toString().slice(1) }, function(err, doc){
             if(err) throw err;
@@ -24,7 +31,7 @@ app.get(/^\/[A-Za-z\d]{7}$/, function(req, res){
 });
     
 app.get(/^\/((http|https):\/\/)?www\..+\..+$/, function(req, res){
-    mongo.connect('mongodb://localhost:27017/shortcuturl', function(err, db){
+    mongo.connect(configDb.settings.url, function(err, db){
         if(err) throw err;
         var hash = hasher.generate();
         
@@ -60,8 +67,13 @@ app.get(/^\/((http|https):\/\/)?www\..+\..+$/, function(req, res){
     });
 });
 
+app.get('/', function(req, res){
+    res.render('index');
+});
+
 app.get('/*', function(req, res){
-    res.end('url could not be found');
+    res.writeHead(200, {'content-type':'application/json'});
+    res.end(JSON.stringify({ error: 'URL invalid' }));
 });
 
 app.listen(8080);

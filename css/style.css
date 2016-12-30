@@ -1,0 +1,40 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  line-height: 1.9em;
+}
+a {
+  color: #44d0ad;
+}
+a:hover,
+a:focus {
+  color: #81dfc8;
+}
+h2 {
+  padding: 10px 0;
+}
+.container {
+  background: #f1f1f1;
+  border-top: 10px solid #44d0ad;
+}
+.well {
+  background-color: #3b3b3b;
+  color: #fff;
+}
+.well hr {
+  border-color: #313131;
+}
+.example-link,
+.example-return {
+  font-family: Helvetica;
+  font-weight: 100;
+}
+.original,
+.short {
+  font-family: 'Raleway', sans-serif;
+  color: #44d0ad;
+}
+i {
+  font-size: 0.7em;
+  color: #44d0ad;
+}

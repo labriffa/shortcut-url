@@ -1,0 +1,51 @@
+// fonts
+main-font = 'Raleway', sans-serif
+
+// colors
+primary-color = #7b483a
+secondary-color = #ab5f2b
+neon-blue = #44d0ad
+light-grey = #f1f1f1
+medium-grey = #a3a3a3
+almost-black = #3b3b3b
+black = #313131
+
+body
+    font-family main-font
+    font-size 15px
+    line-height 1.9em
+
+a
+    color neon-blue
+
+    &:hover
+    &:focus
+        color lighten(neon-blue, 15)
+
+h2 
+    padding 10px 0
+
+.container
+    background light-grey
+    border-top 10px solid neon-blue
+    
+.well
+    background-color almost-black
+    color white
+    
+.well hr
+    border-color black
+
+.example-link
+.example-return
+    font-family Helvetica
+    font-weight 100
+
+.original
+.short
+    font-family main-font
+    color neon-blue
+
+i 
+    font-size .7em
+    color neon-blue

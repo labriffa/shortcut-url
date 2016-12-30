@@ -1,0 +1,23 @@
+html
+    head
+        title Request Header Parser Microservice
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        link(rel="stylesheet", href="../css/style.css")
+        link(href="https://fonts.googleapis.com/css?family=Raleway", rel="stylesheet")
+    div(class="container")
+        h1 Shortcut URL - Microservice
+        hr
+        ul(class="list-group")
+            li(class="list-group-item") Takes a passed URL and produces a shortened URL in the JSON response.
+            li(class="list-group-item") If an invalid URL is passed, the JSON response will contain an error instead.
+            li(class="list-group-item") When the shortened URL is visited it will redirect you to the original link.
+        
+        h2 Example
+        div(class="well")
+            h4 Original URL <i class="glyphicon glyphicon-chevron-right"></i> Short URL
+            hr
+            a(class="example-link" href="https://www.freecodecamp.com/challenges/url-shortener-microservice") https://www.freecodecamp.com/challenges/url-shortener-microservice
+            hr
+            h4 Returns
+            hr
+            p(class="example-return") { <br><span class="original">"original_url"</span>: "https://www.freecodecamp.com/challenges/url-shortener-microservice", <br><span class="short">"short_url"</span>: "https://npm-labriffa.c9users.io/I7WuE26"<br>}
