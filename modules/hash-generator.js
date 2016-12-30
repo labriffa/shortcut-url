@@ -8,6 +8,7 @@ module.exports.generate = function() {
                     String.fromCharCode(x+70) : 62-x);
                     
     hash[5] = new Date().getSeconds();
+    hash[5] = hash[5] <= 9 ? '0' + hash[5] : hash[5]; 
     
     return hash.join('');
 }
